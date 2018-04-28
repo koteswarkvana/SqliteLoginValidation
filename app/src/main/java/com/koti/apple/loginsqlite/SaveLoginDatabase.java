@@ -75,25 +75,23 @@ public class SaveLoginDatabase extends SQLiteOpenHelper {
         Log.e("info >> ", "addUser : inserted ");
     }
 
-    public String getUserInfo(SQLiteDatabase sqLiteDatabase, String name, String password) {
+    public String getUserInfo(SQLiteDatabase sqLiteDatabase, String name1, String password1) {
         try {
-            Cursor cursor = sqLiteDatabase.rawQuery("SELECT name, password FROM users WHERE name = ? AND password = ?", new String[]{name, password});
+            Cursor cursor = sqLiteDatabase.rawQuery("SELECT name, password FROM users WHERE name = ? AND password = ?", new String[]{name1, password1});
 
+            // To print the entair table data
+//            Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM users", null);
             String nameVal = null, passwordVal = null;
             if (cursor != null) {
                 int i = 0;
                 String nameCol[] = new String[cursor.getCount()];
                 String passwordCol[] = new String[cursor.getCount()];
-                if (cursor.getCount() > 0) {
-                    cursor.moveToFirst();
+                if (cursor.moveToFirst()) {
                     do {
-                        nameCol[i] = cursor.getString(cursor.getColumnIndex("name"));
-                        passwordCol[i] = cursor.getString(cursor.getColumnIndex("password"));
-                        Log.e("info >> ", "name  :  " + nameCol[i]);
-                        Log.e("info >> ", "password  :  " + passwordCol[i]);
-                        nameVal = nameCol[i];
-                        passwordVal = passwordCol[i];
-                        i++;
+                        nameVal = cursor.getString(cursor.getColumnIndex("name"));
+                        passwordVal = cursor.getString(cursor.getColumnIndex("password"));
+                        Log.e("info >> ", "name  :  " + nameVal);
+                        Log.e("info >> ", "password  :  " + passwordVal);
                     } while (cursor.moveToNext());
                     cursor.close();
                 }

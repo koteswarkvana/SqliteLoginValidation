@@ -25,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
         save_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String validCredentials = new SaveLoginDatabase(getApplicationContext()).getUserInfo(sqLiteDatabase, name_et.getText().toString(), name_et.getText().toString());
-                if (validCredentials.equalsIgnoreCase("nullnull") && validCredentials.length() > 0){
-                    new SaveLoginDatabase(getApplicationContext()).addUser(sqLiteDatabase, name_et.getText().toString(), name_et.getText().toString());
+                String validCredentials = new SaveLoginDatabase(getApplicationContext()).getUserInfo(sqLiteDatabase, name_et.getText().toString(), password_et.getText().toString());
+                if (validCredentials.equalsIgnoreCase("nullnull")){
+                    new SaveLoginDatabase(getApplicationContext()).addUser(sqLiteDatabase, name_et.getText().toString(), password_et.getText().toString());
                     Toast.makeText(MainActivity.this, "user data saved successfully ", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(MainActivity.this, "user login exists ", Toast.LENGTH_SHORT).show();
