@@ -7,8 +7,12 @@ If already username and password exists in the table it cann't store the user in
 
 Used SQLiteOpenHelper abstract class and implemented onCreate(), onUpgrad(), table creation, database creation, inserted data
 into the table, checked validation " AND querey " and also debugged entair table data.
+
+
 // To check validation get data into cursor object
+
 Cursor cursor = sqLiteDatabase.rawQuery("SELECT name, password FROM users WHERE name = ? AND password = ?", new String[]{name1, password1});
 
 // To print the entair table data
+
 // Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM users", null);
