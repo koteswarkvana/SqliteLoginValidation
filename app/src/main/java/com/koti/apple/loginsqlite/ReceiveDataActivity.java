@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReceiveDataActivity extends AppCompatActivity {
+public class  ReceiveDataActivity extends AppCompatActivity {
 
     private List<String> listVal = new ArrayList<>();
     @Override
